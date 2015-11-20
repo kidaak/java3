@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ====================================================================== 
+     09.11.2015 12:36:06                                                        
+
+     HelloAnt1    
+     description
+                   
+     Student                                                                
+     ====================================================================== -->
+<project name="HelloAnt1" default="jar">
+    <description>
+            description
+    </description>
+	
+	
+	
+    <!-- ================================= 
+          target: jar              
+         ================================= -->
+    <target name="jar" depends="compile" >
+        <echo>jar...</echo>
+    	<!-- jar basedir="build/classes" destfile="build/jar/Ant1.jar"/ -->
+    	
+    	<!-- ausführbares jar-File -->
+    	
+    	<jar basedir="build/classes" destfile="build/jar/Ant1.jar">
+    		<manifest>
+				<attribute name="Main-Class" value="app.Hello"/>    		
+    		</manifest>
+    	</jar>
+    </target>
+
+    <!-- - - - - - - - - - - - - - - - - - 
+          target: depends                      
+         - - - - - - - - - - - - - - - - - -->
+    <target name="compile">
+    	<echo>compile...</echo>
+    	<mkdir dir="build/classes"/>
+    	<javac srcdir="src" destdir="build/classes"/>
+    </target>
+	
+	<target name="clean">
+		<echo>clean..</echo>
+		<delete dir="build"/>
+	</target>
+	
+	
+
+
+</project>

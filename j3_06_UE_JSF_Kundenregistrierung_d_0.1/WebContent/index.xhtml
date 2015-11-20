@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	
+<body>
+	<h1>Kunde / Neuer Kunde</h1>
+	
+	<h2>#{labels['title']}</h2>
+	
+	<!--  -->
+	<h:form>
+		<h:panelGrid columns="2" border="3">
+			<h:selectOneRadio value="#{kundeBean.kundenStatus}" >
+				<f:selectItem itemLabel="Kunde" itemValue="1"/>
+				<f:selectItem itemLabel="Neukunde" itemValue="2" />
+			</h:selectOneRadio>
+			<h:commandButton value="#{labels['next_button']}" action="formKunde"/>
+		</h:panelGrid>
+	</h:form>
+</body>
+</html>

@@ -1,0 +1,42 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:body>
+	<h1>Artikel Übersicht</h1>
+
+
+	<h:dataTable border="1" var="artikel"
+		value="#{artikelBean.artikellist}" binding="#{artikelBean.table}">
+		<h:column>
+			<f:facet name="header">Name</f:facet>
+			<h:outputText value="#{artikel.name}" />
+		</h:column>
+
+		<h:column>
+			<f:facet name="header">Beschreibung</f:facet>
+			<h:outputText value="#{artikel.beschreibung}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Preis</f:facet>
+			<h:outputText value="#{artikel.preis}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Anzahl</f:facet>
+			<h:form>
+				<h:inputText value="#{artikel.anzahl}" />
+				<h:commandButton action="#{artikelBean.store}" value="In den Warenkorb"/>
+
+			</h:form>
+		</h:column>
+	</h:dataTable>
+	<h2>
+		<h:outputText value="#{artikelBean.auswahlArtikel}" />
+	</h2>
+</h:body>
+</html>

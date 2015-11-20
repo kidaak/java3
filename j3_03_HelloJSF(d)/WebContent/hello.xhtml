@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:body>
+
+	<h1>Hello JSF...</h1>
+
+
+	<h:form>
+		<h:inputText value="#{personBean.name}" />
+
+		<h:commandButton action="hello" value="Send" />
+	</h:form>
+
+	<h:outputText value="#{personBean.name}" />
+
+
+	<h:dataTable border="1" value="#{personBean.freunde}" var="freund">
+		<h:column>
+			<f:facet name="header">Freunde</f:facet>
+
+			
+			<h:outputText value="#{freund}" />
+
+		</h:column>
+
+	</h:dataTable>
+
+	<h:panelGrid border="1" columns="2" style="width: 349px; ">
+		<h:outputText value="1"></h:outputText>
+		<h:outputText value="2"></h:outputText>
+		<h:outputText value="item3"></h:outputText>
+		<h:outputText value="item4"></h:outputText>
+	</h:panelGrid>
+
+	<h:outputText value="#{bean2.message}" />
+
+</h:body>
+
+
+</html>

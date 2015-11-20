@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+
+
+<h:body>
+<h:panelGroup>
+	<h2>Ihre Daten</h2>
+	<h:outputText value="Sie sind angemeldet" rendered="#{kundenBean.kundenStatus==1}"/>
+	
+	<h:panelGrid columns="2">
+		<h:outputText value="Vorname"/>
+		<h:outputText value="#{kundenBean.kunde.vorname}"/>
+		<h:outputText value="Nachname"/>
+		<h:outputText value="#{kundenBean.kunde.nachname}"/>
+		<h:outputText value="E-Mail"/>
+		<h:outputText value="#{kundenBean.kunde.email}"/>
+		<h:outputText value="Username"/>
+		<h:outputText value="#{kundenBean.kunde.username}"/>
+		
+		<h:form>
+			<h:commandButton action="#{kundenBean.save}" rendered="#{kundenBean.kundenStatus==2}"/>
+		</h:form>
+		
+		<h:form>
+			<h:commandLink action="formKunde" rendered="#{kundenBean.kundenStatus==1}"/>
+		</h:form>
+	</h:panelGrid>
+
+</h:panelGroup>
+
+
+
+</h:body>
+</html>

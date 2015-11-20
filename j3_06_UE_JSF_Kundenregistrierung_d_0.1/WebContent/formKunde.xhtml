@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	
+	<h:head>
+		<h:outputStylesheet library="css" name="style.css" />
+	
+	</h:head>
+
+<body>
+	<h1>Form Kunde</h1>
+	<h:message id="msgout" for="msgout" infoClass="info" />
+	<h:panelGroup rendered="#{kundeBean.kundenStatus==1}" >
+		<h:form>
+			<h:panelGrid columns="3">
+
+				<h:outputLabel for="input_usr" value="Username" />
+				<h:inputText required="true" id="input_usr"
+					value="#{kundeBean.tempUsername}" />
+				<h:message for="input_usr" />
+
+
+				<h:outputLabel for="input_pwd" value="Password" />
+				<h:inputSecret required="true" id="input_pwd"
+					value="#{kundeBean.tempPassword}" />
+				<h:message for="input_usr" />
+
+				<h:commandButton action="#{kundeBean.isKundeValid}" value="Login" />
+
+			</h:panelGrid>
+		</h:form>
+	</h:panelGroup>
+
+	<h:panelGroup rendered="#{kundeBean.kundenStatus==2}">
+		<h:form>
+			<h:panelGrid>
+				<h:outputLabel for="vorname" value="Vorname" />
+				<h:inputText required="true" id="vorname"
+					value="#{kundeBean.kunde.vorname}" />
+				<h:message for="vorname" />
+
+				<h:outputLabel for="nachname" value="Nachname" />
+				<h:inputText required="true" id="nachname"
+					value="#{kundeBean.kunde.nachname}" />
+				<h:message for="nachname" />
+
+				<h:outputLabel for="email" value="E-Mail" />
+				<h:inputText required="true" id="email"
+					value="#{kundeBean.kunde.email}" />
+				<h:message for="email" />
+
+				<h:outputLabel for="username" value="Username" />
+				<h:inputText required="true" id="username"
+					value="#{kundeBean.kunde.username}" />
+				<h:message for="username" />
+
+				<h:outputLabel for="passwort" value="Passwort" />
+				<h:inputSecret required="true" id="passwort"
+					value="#{kundeBean.kunde.passwort}" />
+				<h:message for="passwort" />
+	
+				<h:commandButton  action="showKunde" value="Weiter"/>
+			</h:panelGrid>
+		</h:form>
+	</h:panelGroup>
+
+</body>
+
+</html>

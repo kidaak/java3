@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ====================================================================== 
+     09.11.2015 12:36:06                                                        
+
+     HelloAnt2    
+     description
+                   
+     Student                                                                
+     ====================================================================== -->
+<project name="HelloAnt2" default="jar">
+    <description>
+            description
+    </description>
+
+	
+	<!-- Properties -->
+	
+	<property name="src.dir" value="src" />
+	<property name="build.dir" value="build" />
+	<property name="class.dir" value="${build.dir}/classes" />
+	<property name="jar.dir" value="${build.dir}/jar" />
+	<property name="doc.dir" value="${build.dir}/doc" />
+	
+    <!-- ================================= 
+          target: jar              
+         ================================= -->
+    <target name="jar" depends="compile" >
+        <echo>jar...${jar.dir} </echo>
+    	<!-- jar basedir="build/classes" destfile="build/jar/Ant1.jar"/ -->
+    	
+    	<!-- ausführbares jar-File -->
+    	
+    	<jar basedir="${class.dir}" destfile="${jar.dir}/${ant.project.name}.jar">
+    		<manifest>
+				<attribute name="Main-Class" value="app.Hello"/>    		
+    		</manifest>
+    	</jar>
+    </target>
+
+    <!-- - - - - - - - - - - - - - - - - - 
+          target: depends                      
+         - - - - - - - - - - - - - - - - - -->
+    <target name="compile">
+    	<echo>compile...</echo>
+    	<mkdir dir="${class.dir}"/>
+    	<javac srcdir="${src.dir}" destdir="${class.dir}"/>
+    </target>
+	
+	<target name="clean">
+		<echo>clean..</echo>
+		<delete dir="${build.dir}"/>
+	</target>
+	
+	<target name="javadoc" depends="compile">
+		<javadoc packagenames="*" sourcepath="${src.dir}"  destdir="${doc.dir}" private="true"/>
+	</target>
+	
+</project>

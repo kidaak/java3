@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<body>
+	<h1>From Kunde</h1>
+
+	<h:panelGroup rendered="#{kundenBean.kundenStatus==1}">
+		<h:form>
+			<h:panelGrid columns="3">
+
+				<h:outputLabel for="input_usr" value="Username" />
+				<h:inputText required="true" id="input_usr"
+					value="#{kundenBean.tempUserName}" />
+				<h:message for="input_usr" />
+
+
+				<h:outputLabel for="input_pwd" value="Password" />
+				<h:inputSecret required="true" id="input_pwd"
+					value="#{kundenBean.tempUserName}" />
+				<h:message for="input_usr" />
+
+				<h:commandButton action="#{kundenBean.isKundeValid}" value="Login" />
+
+			</h:panelGrid>
+		</h:form>
+	</h:panelGroup>
+
+	<h:panelGroup rendered="#{kundenBean.kundenStatus==2}">
+		<h:form>
+			<h:panelGrid>
+				<h:outputLabel for="vorname" value="Vorname" />
+				<h:inputText required="true" id="vorname"
+					value="#{kundenBean.kunde.vorname}" />
+				<h:message for="vorname" />
+
+				<h:outputLabel for="nachname" value="Nachname" />
+				<h:inputText required="true" id="nachname"
+					value="#{kundenBean.kunde.nachname}" />
+				<h:message for="nachname" />
+
+				<h:outputLabel for="email" value="E-Mail" />
+				<h:inputText required="true" id="email"
+					value="#{kundenBean.kunde.email}" />
+				<h:message for="email" />
+
+				<h:outputLabel for="username" value="Username" />
+				<h:inputText required="true" id="username"
+					value="#{kundenBean.kunde.username}" />
+				<h:message for="username" />
+
+				<h:outputLabel for="passwort" value="Passwort" />
+				<h:inputSecret required="true" id="passwort"
+					value="#{kundenBean.kunde.passwort}" />
+				<h:message for="passwort" />
+	
+				<h:commandButton  action="showKunde" value="Weiter"/>
+			</h:panelGrid>
+		</h:form>
+	</h:panelGroup>
+
+</body>
+
+</html>
